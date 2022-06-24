@@ -128,8 +128,6 @@ img {
 .header-content .link:hover,
 .header-content .link:focus {
   color: var(--link-color);
-
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-list .link {
@@ -140,6 +138,7 @@ img {
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--title-text-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-list .link.current {
@@ -167,8 +166,6 @@ img {
 .item-icon:hover,
 .item-icon:focus {
   color: var(--link-color);
-
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-list {
@@ -186,6 +183,8 @@ img {
   letter-spacing: 0.02em;
 
   color: var(--primari-text-color);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-list > .item:nth-child(n + 2) {
@@ -247,11 +246,13 @@ img {
   margin-left: 8px;
 }
 
-.list-button .button {
+.project-button {
   cursor: pointer;
 
   border-radius: 4px;
   border: transparent;
+
+  padding: 6px 22px;
 
   text-align: center;
 
@@ -264,53 +265,20 @@ img {
   letter-spacing: 0.03em;
   background-color: var(--second-bcg-color);
   color: var(--title-text-color);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.list-button .button:hover,
-.list-button .button:focus {
+.project-button:hover,
+.project-button:focus {
   background-color: var(--link-color);
   color: var(--secondary-text-color);
 
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
-
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.button.all {
-  width: 73px;
-  height: 38px;
-  left: 495px;
-  top: 174px;
-}
-
-.button.web {
-  width: 128px;
-  height: 38px;
-  left: 576px;
-  top: 174px;
-}
-
-.button.app {
-  width: 145px;
-  height: 38px;
-  left: 712px;
-  top: 174px;
-}
-
-.button.design {
-  width: 103px;
-  height: 38px;
-  left: 865px;
-  top: 174px;
-}
-
-.button.marcketing {
-  width: 130px;
-  height: 38px;
-  left: 976px;
-  top: 174px;
-}
 /* portfolio projects */
 
 .project-list {
@@ -326,13 +294,12 @@ img {
 .project-card:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
-
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-card {
-  cursor: pointer;
   display: block;
+
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-slider {
@@ -361,7 +328,7 @@ img {
 
   background-color: rgba(33, 150, 243, 0.9);
 
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-item:hover .project-desc,
@@ -449,14 +416,15 @@ img {
 
   border-radius: 4px;
   border: none;
+
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-button:hover,
 .hero-button:focus {
   background-color: #188ce8;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop {
@@ -470,7 +438,7 @@ img {
   height: 100%;
 
   background-color: rgba(0, 0, 0, 0.2);
-  transition: 1500ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden {
@@ -480,7 +448,7 @@ img {
 
 .modal {
   position: absolute;
-  display: flex;
+
   top: 0;
   left: 0;
   top: 50%;
@@ -490,32 +458,39 @@ img {
   min-width: 528px;
   min-height: 581px;
 
-  align-items: center;
-  justify-content: center;
+  padding: 40px;
 
   background-color: var(--secondary-text-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-
-  transition: 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-button {
   position: absolute;
+
   right: 8px;
   top: 8px;
+
   cursor: pointer;
+
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
   background-color: var(--secondary-text-color);
-  border: none;
 }
 
 .icon-close {
   width: 18px;
   height: 18px;
-
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 50%;
 }
 
 .modal-text {
@@ -575,16 +550,15 @@ img {
   font-weight: 700;
   font-size: 14px;
   line-height: 1.14;
-  letter-spacing: 0.03em;
+
   text-transform: uppercase;
   color: var(--title-text-color);
 }
 
 .skill-text {
   font-weight: 400;
-  font-size: 14px;
+
   line-height: 1.71;
-  letter-spacing: 0.03em;
 }
 
 /* our work */
@@ -602,7 +576,7 @@ img {
   margin-bottom: 50px;
   font-weight: 700;
   font-size: 36px;
-  line-height: 42px;
+  line-height: 1.16;
   text-align: center;
   letter-spacing: 0.03em;
 
@@ -627,10 +601,8 @@ img {
   min-height: 70px;
 
   font-weight: 700;
-  font-size: 14px;
-  line-height: 16px;
+  line-height: 1.14px;
 
-  letter-spacing: 0.03em;
   text-transform: uppercase;
 
   color: var(--secondary-text-color);
@@ -713,14 +685,15 @@ img {
   color: var(--main-icon-color);
   justify-content: center;
   align-items: center;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link-icon:hover,
 .link-icon:focus {
   background-color: var(--link-color);
   color: var(--secondary-text-color);
-
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon {
@@ -732,8 +705,6 @@ img {
 .icon:hover,
 .icon:focus {
   fill: var(--secondary-text-color);
-
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* clients */
@@ -770,14 +741,15 @@ img {
   border-radius: 4px;
 
   color: var(--main-icon-color);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link-client:hover,
 .link-client:focus {
   color: var(--link-color);
   border-color: var(--link-color);
-
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon-client {
@@ -813,8 +785,6 @@ img {
 .footer-link .link:hover,
 .footer-link .link:focus {
   color: var(--link-color);
-
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .addres {
@@ -828,6 +798,8 @@ img {
   line-height: 1.71;
   letter-spacing: 0.03em;
   color: rgba(255, 255, 255, 0.6);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-link > .item:nth-child(n + 2) {
@@ -841,13 +813,13 @@ img {
   line-height: 1.71;
   letter-spacing: 0.03em;
   color: var(--secondary-text-color);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .map-link:hover,
 .map-link:focus {
   color: var(--link-color);
-
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /*  social icons */
@@ -884,18 +856,19 @@ img {
   height: 44px;
 
   border-radius: 50%;
+  color: var(--secondary-text-color);
   background-color: var(--main-bg-icon-color);
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .item-social > .link:hover,
 .item-social > .link:focus {
   background-color: var(--link-color);
-
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-icon {
-  fill: var(--secondary-text-color);
+  fill: currentColor;
 
   width: 20px;
   height: 20px;
